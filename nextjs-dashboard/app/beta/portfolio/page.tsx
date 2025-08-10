@@ -41,6 +41,7 @@ export default function Page() {
       <div className="w-full mx-auto px-4 py-6 flex justify-center items-center shadow-lg shadow-[#4f4f4f]">
         <button
           className="relative w-[34px] h-[34px] border border-[#4f4f4f] z-20 shadow shadow-[#4f4f4f] rounded-lg"
+          onMouseEnter={() => setSideNavOpen(false)}
           onClick={() => setSideNavOpen(!isSideNavOpen)}
         >
           <MdOutlineMenu
@@ -71,6 +72,7 @@ export default function Page() {
           "transition-all duration-300",
           isSideNavOpen ? "-translate-x-full shadow-none" : "shadow-lg"
         )}
+        onMouseLeave={() => setSideNavOpen(true)}
       >
         <h1 className="text-2xl text-center font-bold">Menu</h1>
         <ul className="space-y-4 text-center">
@@ -90,9 +92,10 @@ export default function Page() {
         </ul>
       </nav>
 
-      <div className="w-full h-full flex  bg-portfolio-header">
-            <div className="w-1/2 h-full flex justify-center items-center">
+      <div className="w-full h-full flex flex-col md:flex-row bg-portfolio-header">
+            <div className="w-full md:w-1/2 h-full border-2 border-white flex justify-center items-center">
               <LiquidGlass
+                  
                   blurAmount={0.5}
                   displacementScale={100}
                   saturation={100}
@@ -100,31 +103,30 @@ export default function Page() {
                   borderRadius={16}
                   elasticity={0.0}
                   mode="standard"
-                  className=""
+                  height={0.9}
+                  width={0.9}
+                  customSize={true}
                   style={{
-                    width: '100%',
-                    height: '100%',
-                    top: '50%',
-                    left: '50%'
+                    
+                    
 
                     
                   }}
               >
-                
-                <div className="">
-                  
-                  <div className="w-full h-full flex flex-col gap-4">
-                    <p className="text-white text-4xl font-inter font-normal">Test</p>
-                    <p className="text-white text-lg font-inter font-normal">Alter:</p>
-                    <p className="text-white text-lg font-inter font-normal">Geburtsdatum:</p>
-                    <p className="text-white text-lg font-inter font-normal">Nationalitäten:</p>
-                    <p className="text-white text-lg font-inter font-normal">Hobbies:</p>
+                <img src="../img/NeuesProjekt.png" className="w-32 h-32 md:h-64 md:w-64 mt-6 rounded-full"/>
+                <div className="flex">
+                  <div className="w-full mt-6 h-full flex flex-col gap-4">
+                    <p className="text-white  text-xl md:text-4xl font-inter font-normal">Flondrit Fazlijevic</p>
+                    <p className="text-white text-lg font-inter font-extralight md:font-normal">Alter:</p>
+                    <p className="text-white text-lg font-inter font-extralight md:font-normal">Geburtsdatum:</p>
+                    <p className="text-white text-lg font-inter font-extralight md:font-normal">Nationalitäten:</p>
+                    <p className="text-white text-lg font-inter font-extralight md:font-normal">Hobbies:</p>
                   </div>
                   <div className="w-full h-full flex flex-col gap-4">
-                    <p className="text-white text-lg font-inter font-extralight mt-14">hi</p>
-                    <p className="text-white text-lg font-inter font-extralight">hi</p>
-                    <p className="text-white text-lg font-inter font-extralight">hi</p>
-                    <p className="text-white text-lg font-inter font-extralight">hi</p>
+                    <p className="text-white text-lg font-inter font-extralight mt-20">15 Jahre</p>
+                    <p className="text-white text-lg font-inter font-extralight">7. August 2010</p>
+                    <p className="text-white text-lg font-inter font-extralight">Schweiz, Kosovo</p>
+                    <p className="text-white text-lg font-inter font-extralight">Gamen</p>
   
                   </div>
                 </div>
@@ -132,7 +134,8 @@ export default function Page() {
             </div>
 
           
-            <div className="w-1/2 flex justify-center items-center h-full border-2 border-white">
+            <div className="w-full md:w-1/2 flex border-2 border-white justify-center items-end h-full">
+            
               <LiquidGlass
                 blurAmount={0.5}
                 displacementScale={100}
@@ -141,14 +144,12 @@ export default function Page() {
                 borderRadius={16}
                 elasticity={0.0}
                 mode="standard"
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    
-                  }}
-                
+                height={0.7}
+                width={0.9}
+                customSize={true}
+                className="mb-10"
               >
-                <p className="md:text-4xl text-2xl mt-3 font-inter font-normal text-white underline">
+                <p className="md:text-4xl text-2xl mt-2 text-center font-inter font-normal text-white underline">
                   Erfahrungen
                 </p>
                 <ul className="space-y-2">
