@@ -145,6 +145,9 @@ const onkeydown = (event: any) => {
     aberrationIntensity={0}
     borderRadius={16}
     elasticity={0.00}
+    height={0.5}
+    width={0.5}
+    customSize={true}
     mode='standard'
     >
 
@@ -173,7 +176,7 @@ const onkeydown = (event: any) => {
                   PointerEntered ? "scale-105" : "scale-100",
                   Clicked ? "scale-90" : "scale-100"
                 )}>
-                 <RxEnter className="absolute left-[86px] top-1/2 transform -translate-y-1/2" size={21}/>
+                 <RxEnter className="absolute inset-0 mx-auto right-20 top-1/2 transform -translate-y-1/2" size={19}/>
                  <span className='text-center text-md font-inter font-normal'>Enter</span>
                 </button>
 
