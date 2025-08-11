@@ -16,7 +16,7 @@ import { FaPython } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
 import { FaHtml5 } from "react-icons/fa6";
 
-const LiquidGlass = dynamic(() => import("@nkzw/liquid-glass"), {
+const LiquidGlass = dynamic(() => import("../../../@nkzw/liquid-glass"), {
   ssr: false,
 });
 

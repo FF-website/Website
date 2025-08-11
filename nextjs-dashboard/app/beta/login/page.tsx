@@ -30,7 +30,7 @@ type PopUp = {
   type: "success" | "error" | "info"
 };
 
-const LiquidGlass = dynamic(() => import('@nkzw/liquid-glass'), {
+const LiquidGlass = dynamic(() => import('../../../@nkzw/liquid-glass'), {
   ssr: false,
 });
 

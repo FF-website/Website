@@ -1,0 +1,54 @@
+import * as react0 from "react";
+import { CSSProperties, ReactNode, RefObject } from "react";
+
+//#region src/index.d.ts
+type LiquidGlassProps = {
+  aberrationIntensity?: number;
+  blurAmount?: number;
+  borderRadius?: number;
+  children: ReactNode;
+  height?: number;
+  width?: number;
+  customSize?: boolean;
+  className?: string;
+  displacementScale?: number;
+  elasticity?: number;
+  globalMousePos?: {
+    x: number;
+    y: number;
+  };
+  mode?: 'standard' | 'polar' | 'prominent' | 'shader';
+  mouseContainer?: RefObject<HTMLElement | null> | null;
+  mouseOffset?: {
+    x: number;
+    y: number;
+  };
+  onClick?: () => void;
+  overLight?: boolean;
+  padding?: string;
+  saturation?: number;
+  style?: CSSProperties;
+};
+declare function LiquidGlass({
+  aberrationIntensity,
+  blurAmount,
+  borderRadius,
+  children,
+  height,
+  width,
+  customSize, 
+  className,
+  displacementScale,
+  elasticity,
+  globalMousePos: externalGlobalMousePos,
+  mode,
+  mouseContainer,
+  mouseOffset: externalMouseOffset,
+  onClick,
+  overLight,
+  padding,
+  saturation,
+  style
+}: LiquidGlassProps): react0.JSX.Element;
+//#endregion
+export { LiquidGlassProps, LiquidGlass as default };
