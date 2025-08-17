@@ -37,8 +37,8 @@ export default function Page() {
 
 
   return (
-    <div className="w-screen h-screen bg-portfolio-header flex flex-col">
-      <div className="w-full mx-auto px-4 py-6 flex justify-center items-center shadow-lg shadow-[#4f4f4f]">
+    <div className="w-screen h-screen bg-gradient-to-tl from-login-dark to-portfolio-header flex flex-col">
+      <div className="w-full mx-auto px-4 py-6 flex justify-center items-center shadow shadow-[#4f4f4f]">
         <button
           className="relative w-[34px] h-[34px] border border-[#4f4f4f] z-20 shadow shadow-[#4f4f4f] rounded-lg"
           onMouseEnter={() => setSideNavOpen(false)}
@@ -92,8 +92,8 @@ export default function Page() {
         </ul>
       </nav>
 
-      <div className="w-full h-full flex flex-col md:flex-row bg-portfolio-header">
-            <div className="w-full md:w-1/2 h-full border-2 border-white flex justify-center items-center">
+      <div className="w-full h-full flex flex-col md:flex-row bg-gradient-to-tl from-login-blue via-login-dark to-portfolio-header">
+            <div className="w-full md:w-1/2 h-full flex justify-center items-center">
               <LiquidGlass
                   
                   blurAmount={0.5}
@@ -113,28 +113,52 @@ export default function Page() {
                     
                   }}
               >
-                <img src="../img/NeuesProjekt.png" className="w-32 h-32 md:h-64 md:w-64 mt-6 rounded-full"/>
-                <div className="flex">
-                  <div className="w-full mt-6 h-full flex flex-col gap-4">
-                    <p className="text-white  text-xl md:text-4xl font-inter font-normal">Flondrit Fazlijevic</p>
-                    <p className="text-white text-lg font-inter font-extralight md:font-normal">Alter:</p>
-                    <p className="text-white text-lg font-inter font-extralight md:font-normal">Geburtsdatum:</p>
-                    <p className="text-white text-lg font-inter font-extralight md:font-normal">Nationalitäten:</p>
-                    <p className="text-white text-lg font-inter font-extralight md:font-normal">Hobbies:</p>
+                <div className="flex flex-col justify-center">
+                  <div className="border-2 border-white">
+                    <img src="../img/NeuesProjekt.png" className="w-28 h-28 md:h-56 md:w-56 mt-6 rounded-full"/>
                   </div>
-                  <div className="w-full h-full flex flex-col gap-4">
-                    <p className="text-white text-lg font-inter font-extralight mt-20">15 Jahre</p>
-                    <p className="text-white text-lg font-inter font-extralight">7. August 2010</p>
-                    <p className="text-white text-lg font-inter font-extralight">Schweiz, Kosovo</p>
-                    <p className="text-white text-lg font-inter font-extralight">Gamen</p>
+                  
+                  <div className="flex-col border-2 border-white">
+                    <div className="w-full h-1/5">
+                      <p className="text-white text-xl md:text-4xl font-inter font-normal">Flondrit Fazlijevic</p>
+                    </div>
+                    
+                    <div className="w-full h-full flex">
+                      <div className="w-1/2 h-full flex flex-col gap-2">
+                        <p className="text-white text-base md:text-lg font-inter font-extralight md:font-normal">Alter:</p>
+                        <p className="text-white text-base md:text-lg font-inter font-extralight md:font-normal">Geburtsdatum:</p>
+                        <p className="text-white text-base md:text-lg font-inter font-extralight md:font-normal">Nationalitäten:</p>
+                        <p className="text-white text-base md:text-lg font-inter font-extralight md:font-normal">Hobbies:</p>
+                        <p className="text-white text-lg md:text-2xl font-inter font-extralight md:font-normal underline underline-offset-4">Über Mich:</p>
+                      </div>
+                      <div className="w-1/2 h-full flex flex-col gap-2">
+                        <p className="text-white text-base md:text-lg font-inter font-extralight">15 Jahre</p>
+                        <p className="text-white text-base md:text-lg font-inter font-extralight">7. August 2010</p>
+                        <p className="text-white text-base md:text-lg font-inter font-extralight">Schweiz, Kosovo</p>
+                        <p className="text-white text-base md:text-lg font-inter font-extralight">Fussball, Basketball, Programmieren, Gamen</p>
+                      </div>
   
+                    </div>
+                  </div>
+                  <div className="w-full h-full border-white border-2">
+                    <p className="text-white text-base md:text-lg font-inter font-extralight">
+                      Ich bin Flondrit Fazlijevic, 15 Jahre alt und komme aus dem Kosovo. 
+                      Ich bin in der Schweiz geboren, aber meine Eltern kommen aus dem Kosovo.  
+                      Meine Leidenschaft ist das Programmieren. 
+                      Gerne lerne ich neue Porgrammiersprachen und arbeite in Gruppenprojekten mit.
+                      Die erste Programmiersprache die ich gelernt habe, war Javascript. 
+                      Die Programmiersprache schien mir am einfachsten zu sein,
+                      deswegen habe ich mich für diese entschieden.
+                      Ich habe dies erreicht, indem ich Tutorials auf YouTube geschaut habe und dokumentationen gelesen habe.
+                      Jetzt lerne ich HTML und CSS mit next.js und tailwindcss.
+                    </p>
                   </div>
                 </div>
               </LiquidGlass>
             </div>
 
           
-            <div className="w-full md:w-1/2 flex border-2 border-white justify-center items-end h-full">
+            <div className="w-full md:w-1/2 flex justify-center items-center h-full">
             
               <LiquidGlass
                 blurAmount={0.5}
@@ -144,42 +168,42 @@ export default function Page() {
                 borderRadius={16}
                 elasticity={0.0}
                 mode="standard"
-                height={0.7}
+                height={0.9}
                 width={0.9}
                 customSize={true}
-                className="mb-10"
+                
               >
                 <p className="md:text-4xl text-2xl mt-2 text-center font-inter font-normal text-white underline">
                   Erfahrungen
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center">
-                    <IoLogoJavascript className="mt-6" size={40} color="#fcba03" />
-                    <span className="mt-6 ml-6 font-inter font-extralight">
+                    <IoLogoJavascript className="mt-6" size={80} color="#fcba03" />
+                    <span className="mt-6 ml-6 text-2xl font-inter font-extralight">
                       Javascript(Gute Kenntnisse)
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <SiLua className="mt-6" size={40} color="#0055ff" />
-                    <span className="mt-6 ml-6 font-inter font-extralight">
+                    <SiLua className="mt-6" size={80} color="#0055ff" />
+                    <span className="mt-6 ml-6 text-2xl font-inter font-extralight">
                       Lua(Gute Kenntnisse)
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <FaPython className="mt-6" size={40} color="#0263a8" />
-                    <span className="mt-6 ml-6 font-inter font-extralight">
+                    <FaPython className="mt-6" size={80} color="#0263a8" />
+                    <span className="mt-6 ml-6 text-2xl font-inter font-extralight">
                       Python(Grundkenntnisse)
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <FaHtml5 className="mt-6" size={40} color="#ff6f00" />
-                    <span className="mt-6 ml-6 font-inter font-extralight">
+                    <FaHtml5 className="mt-6" size={80} color="#ff6f00" />
+                    <span className="mt-6 ml-6 text-2xl font-inter font-extralight">
                       HTML(Grundkenntnisse)
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <FaCss3Alt className="mt-6" size={40} color="#0384fc" />
-                    <span className="mt-6 ml-6 font-inter font-extralight">
+                    <FaCss3Alt className="mt-6" size={80} color="#0384fc" />
+                    <span className="mt-6 ml-6 text-2xl font-inter font-extralight">
                       CSS(Grundkenntnisse)
                     </span>
                   </li>

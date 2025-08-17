@@ -108,7 +108,7 @@ const buttonClick = (Pointer: boolean, TouchStart: boolean) => {
     addPopUpMessage("Redirecting to page...", "#0c8501", "success")
 
   
-  router.push('/portfolio')
+  router.push('/beta/portfolio')
   } else {
    addPopUpMessage("Access Denied", "#e80602", "error")
   }
