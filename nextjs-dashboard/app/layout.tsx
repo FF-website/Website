@@ -22,10 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    
     <html lang="en" className={opensans.variable}>
       <body className="font-opensans">
         {children}
       </body>
+      <head>
+        <meta name="theme-color" content="#4562E6" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    </head>
     </html>
 
   );

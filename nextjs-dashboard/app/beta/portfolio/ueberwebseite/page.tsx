@@ -22,14 +22,9 @@ export default function Page() {
   const router = useRouter();
   const [isSideNavClosed, setSideNavClosed] = useState(true);
 
-  useEffect(() => {
-    if (!isAuthenticated()) {
-      router.push("/login");
-    }
-  });
 
   const menunav = (e: any) => {
-    router.push(`/beta/portfolio`);
+    router.push(`/beta/${e.target.id}`);
 
 
   };
@@ -56,31 +51,36 @@ export default function Page() {
   return (
     <div className="w-screen h-screen bg-gradient-to-tl from-login-dark to-portfolio-header flex flex-col">
       <div className="w-full mx-auto px-4 py-6 flex justify-center items-center shadow shadow-[#4f4f4f]">
-        <button
-          className="relative w-[34px] h-[34px] border border-[#4f4f4f] z-20 shadow shadow-[#4f4f4f] rounded-lg"
-          onMouseEnter={() => setSideNavClosed(false)}
-          onClick={() => setSideNavClosed(!isSideNavClosed)}
-        >
-          <MdOutlineMenu
-            className={clsx(
-              "absolute inset-0 m-auto transition-opacity duration-300",
-              isSideNavClosed ? "opacity-100" : "opacity-0"
-            )}
-            size={30}
-            color="#ffffff"
-          />
-          <IoClose
-            className={clsx(
-              "absolute inset-0 m-auto transition-opacity duration-300",
-              isSideNavClosed ? "opacity-0" : "opacity-100"
-            )}
-            size={30}
-            color="#ffffff"
-          />
-        </button>
+        <div className="w-1/3">
+          <button
+            className="relative w-[34px] h-[34px] border border-[#4f4f4f] z-20 shadow shadow-[#4f4f4f] rounded-lg"
+            onMouseEnter={() => setSideNavClosed(false)}
+            onClick={() => setSideNavClosed(!isSideNavClosed)}
+          >
+            <MdOutlineMenu
+              className={clsx(
+                "absolute inset-0 m-auto transition-opacity duration-300",
+                isSideNavClosed ? "opacity-100" : "opacity-0"
+              )}
+              size={30}
+              color="#ffffff"
+            />
+            <IoClose
+              className={clsx(
+                "absolute inset-0 m-auto transition-opacity duration-300",
+                isSideNavClosed ? "opacity-0" : "opacity-100"
+              )}
+              size={30}
+              color="#ffffff"
+            />
+          </button>
+        </div>
 
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl text-white">Portfolio</h1>
+        <div className="w-1/3 flex justify-center items-center">
+          <h1 className="text-2xl text-white select-none">Portfolio</h1>
+        </div>
+        <div className="w-1/3 flex justify-end items-center">
+
         </div>
       </div>
       <nav
@@ -93,13 +93,14 @@ export default function Page() {
       >
         <h1 className="text-2xl text-center font-inter font-normal">Menu</h1>
         <ul className="space-y-4 text-center">
-          <li className="hover:bg-[#2e2e2e] font-inter font-extralight p-2 mt-4 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out"
-          onClick={(e) => menunav(e)}>
+          <li className="hover:bg-[#2e2e2e] font-inter font-extralight p-2 mt-4 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out select-none"
+          onClick={(e) => menunav(e)}
+          id="portfolio">
             Über Mich
           </li>
           <li
-            className="hover:bg-[#2e2e2e] font-inter font-extralight p-2 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out"
-            id="ueberwebseite"
+            className="hover:bg-[#2e2e2e] font-inter font-extralight p-2 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out select-none"
+            id="portfolio/ueberwebseite"
             onClick={(e) => menunav(e)}
           >
             Über diese Webseite
@@ -123,12 +124,12 @@ export default function Page() {
           >
             <div className="w-full h-full flex flex-col">
               <div className="w-full h-1/5 flex flex-col justify-center">
-                <p className="text-[#4562E6] text-2xl md:text-4xl underline decoration-[#4562E6] underline-offset-4 font-inter font-normal">
+                <p className="text-[#4562E6] text-2xl md:text-4xl underline decoration-[#4562E6] underline-offset-4 font-inter font-normal select-none">
                   Über Diese Webseite
                 </p>
               </div>
               <div className="w-full h-[60%] md:h-[45%] overflow-auto">
-                <p className="text-white text-base md:text-lg font-inter font-extralight">
+                <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
                   Diese Webseite habe ich innerhalb von einem Monat
                   programmiert. Ich musste mir zuerst die Grundlagen von Next.js
                   und React aneignen, bevor ich mit dem Programmieren dieser
@@ -179,12 +180,12 @@ export default function Page() {
           >
             <div className="w-full h-full flex flex-col ">
               <div className="w-full h-1/5 flex flex-col justify-center">
-                <span className="font-inter font-normal underline underline-offset-4 decoration-[#4562E6] text-[#4562E6] text-2xl md:text-4xl">
+                <span className="font-inter font-normal underline underline-offset-4 decoration-[#4562E6] text-[#4562E6] text-2xl md:text-4xl select-none">
                   Zusätzliche Informationen
                 </span>
               </div>
               <div className="w-full h-[30%] md:h-[15%] ">
-                <p className="text-white text-base md:text-lg font-inter font-extralight">
+                <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
                   Diese Webseite hat auch eine Login-Funktion, die es
                   ermöglicht, die Informationen über mich zu schützen. Jedoch
                   finde ich das nicht notwendig. Der Zugangscode ist
@@ -195,13 +196,13 @@ export default function Page() {
               <div className="w-full h-1/5 flex justify-center items-center">
                 <Link
                   href="/beta/login"
-                  className="text-white text-lg font-inter font-extralight backdrop-blur bg-opacity-30 border-2 p-3 hover:border-blue-500 transition-colors duration-150 border-white rounded-lg"
+                  className="text-white text-lg font-inter font-extralight backdrop-blur bg-opacity-30 border-2 p-3 hover:border-blue-500 transition-colors duration-150 border-white rounded-lg select-none"
                 >
                   Gehe zur Login-Seite
                 </Link>
               </div>
               <div className="w-full h-1/5 flex justify-center items-center">
-                <p className="text-white text-base md:text-lg font-inter font-extralight">
+                <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
                   Diese Webseite wurde mit Next.js, React, Tailwind CSS und
                   TypeScript entwickelt. Diese Webseite ist open-source und der
                   Quellcode ist auf GitHub verfügbar.
@@ -210,7 +211,7 @@ export default function Page() {
               <div className="w-full h-1/5 flex justify-center items-center">
                 <Link
                   href="https://github.com/FF-website/Website"
-                  className="text-white text-lg flex flex-colfont-inter font-extralight backdrop-blur bg-opacity-30 border-2 p-3 hover:border-blue-500 transition-colors duration-150 border-white rounded-lg"
+                  className="text-white text-lg flex flex-colfont-inter font-extralight backdrop-blur bg-opacity-30 border-2 p-3 hover:border-blue-500 transition-colors duration-150 border-white rounded-lg select-none"
                 >
                   <FaGithub size={30} className="mr-3" />
                   Gehe zum Quellcode
