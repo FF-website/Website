@@ -135,52 +135,56 @@ const onkeydown = (event: any) => {
 
 
   return (
-    <>
-  <div className="flex justify-center items-center min-h-screen overflow-hidden bg-gradient-to-t from-login-blue to-login-dark">
+    
+  <div className="flex justify-center items-center w-full h-screen overflow-hidden bg-gradient-to-t from-login-blue to-login-dark">
 
-    <LiquidGlass 
-    blurAmount={1}
-    displacementScale={100}
-    saturation={100}
-    aberrationIntensity={0}
-    borderRadius={16}
-    elasticity={0.00}
-    height={0.5}
-    width={0.5}
-    customSize={true}
-    mode='standard'
-    >
-
-      <div className='flex flex-col gap-4 p-6 justify-center items-center text-center text-white'>
-          <span className='text-4xl font-bold'>Zugangscode</span>
-          <LuLockKeyhole size={100} color='white' className=''/>
-        </div>
-                <input
-                  id="input-box"
-                  type="text"
-                  value={inputValue} // Set value of input from state
-                  onChange={handleInputChange} // Handle input change
-                  onKeyDown={onkeydown}
-                  className="w-full p-3 mt-6 bg-blue-950 backdrop-blur-md text-white border-2 border-gray-300/40 transition-all duration-100 ease-in-out placeholder-gray-150 rounded-xl focus:outline-none focus:ring-2  focus:border-login-blue"
-                  placeholder="Zugangscode"
-                />
-                
-                <button 
-                onPointerEnter={(e)=> setPointerEntered(true)}
-                onPointerLeave={(e)=> setPointerEntered(false)}
-                onClick={(e)=> buttonClick(PointerEntered, false)}
-                onTouchStart={(e)=> buttonClick(PointerEntered, true)}
-                onTouchEnd={(e)=> buttonClick(PointerEntered, false)}
-                className={clsx(
-                  "w-full mt-3 relative flex items-center justify-center bg-blue-700 text-white px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg md:px-12 md:py-1 md:text-xl rounded-xl transform transition duration-150",
-                  PointerEntered ? "scale-105" : "scale-100",
-                  Clicked ? "scale-90" : "scale-100"
-                )}>
-                 <RxEnter className="absolute inset-0 mx-auto right-20 top-1/2 transform -translate-y-1/2" size={19}/>
-                 <span className='text-center text-md font-inter font-normal'>Enter</span>
-                </button>
-
-    </LiquidGlass>
+    <div className='flex justify-center items-center w-full md:w-1/2 h-1/2'>
+      <LiquidGlass 
+      blurAmount={1}
+      displacementScale={100}
+      saturation={100}
+      aberrationIntensity={0}
+      borderRadius={16}
+      elasticity={0.00}
+      height={1}
+      width={1}
+      customSize={true}
+      mode='standard'
+      >
+  
+       <div className='w-ful h-full'>
+          <div className='flex flex-col gap-4 p-6 justify-center items-center text-center text-white '>
+              <span className='text-2xl md:text-4xl font-inter font-normal'>Zugangscode</span>
+              <LuLockKeyhole color='white' className='w-28 h-28 md:w-32 md:h-32'/>
+            </div>
+                    <input
+                      id="input-box"
+                      type="text"
+                      value={inputValue} // Set value of input from state
+                      onChange={handleInputChange} // Handle input change
+                      onKeyDown={onkeydown}
+                      className="w-full bg-blue-950 backdrop-blur-md text-white border-2 border-gray-300/40 transition-all duration-100 ease-in-out placeholder-gray-150 rounded-xl focus:outline-none focus:ring-2  focus:border-login-blue"
+                      placeholder="Zugangscode"
+                    />
+                    
+                    <button 
+                    onPointerEnter={(e)=> setPointerEntered(true)}
+                    onPointerLeave={(e)=> setPointerEntered(false)}
+                    onClick={(e)=> buttonClick(PointerEntered, false)}
+                    onTouchStart={(e)=> buttonClick(PointerEntered, true)}
+                    onTouchEnd={(e)=> buttonClick(PointerEntered, false)}
+                    className={clsx(
+                      "w-full mt-3 relative flex items-center justify-center bg-blue-700 text-white px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg md:px-12 md:py-1 md:text-xl rounded-xl transform transition duration-150",
+                      PointerEntered ? "scale-105" : "scale-100",
+                      Clicked ? "scale-90" : "scale-100"
+                    )}>
+                     <RxEnter className="absolute inset-0 mx-auto right-20 top-1/2 transform -translate-y-1/2" size={19}/>
+                     <span className='text-center text-md font-inter font-normal'>Enter</span>
+                    </button>
+       </div>
+  
+      </LiquidGlass>
+    </div>
 
 
     <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
@@ -213,7 +217,7 @@ const onkeydown = (event: any) => {
 
 
 </div>
-   </>
+   
   
 
 

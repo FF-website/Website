@@ -1,14 +1,17 @@
-"use client";
-import { useRouter } from "next/navigation"
-import Link from "next/link";
+'use client'; 
 
-export default function Page() {
- 
-      
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-  return (
-    <Link href="/beta/login">
-      redirect
-    </Link>
-  )
-}
+const Page = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect immediately on page load
+    router.push('/beta/login');
+  }, [router]);
+
+  return <div>Redirecting...</div>;
+};
+
+export default Page;

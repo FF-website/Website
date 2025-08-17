@@ -104,7 +104,7 @@ export default function Page() {
         </ul>
       </nav>
 
-      <div className="w-full h-full flex flex-col gap-4 md:flex-row bg-gradient-to-tl overflow-scroll from-login-blue via-login-dark to-portfolio-header">
+      <div className="w-full min-h-full flex flex-col gap-4 md:flex-row bg-gradient-to-tl overflow-scroll from-login-blue via-login-dark to-portfolio-header">
         <div
           className="w-full md:w-1/2 min-h-full flex flex-col justify-center items-center "
           ref={aboutref}
