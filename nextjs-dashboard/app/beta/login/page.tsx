@@ -102,7 +102,7 @@ const buttonClick = (Pointer: boolean, TouchStart: boolean) => {
 
   setTimeout(() => setClicked(false), 150)
 
-  if (inputValue === "GOOGLE25") {
+  if (inputValue === "ACCESS2025") {
     login()
 
     addPopUpMessage("Redirecting to page...", "#0c8501", "success")

@@ -79,9 +79,6 @@ export default function Page() {
           <li className="hover:bg-[#2e2e2e] p-2 mt-4 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out">
             Über Mich
           </li>
-          <li className="hover:bg-[#2e2e2e] p-2 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out">
-            Kenntnisse
-          </li>
           <li
             className="hover:bg-[#2e2e2e] p-2 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out"
             id="ueberwebseite"
@@ -92,7 +89,7 @@ export default function Page() {
         </ul>
       </nav>
 
-      <div className="w-full h-full flex flex-col md:flex-row bg-gradient-to-tl from-login-blue via-login-dark to-portfolio-header">
+      <div className="w-full h-full flex flex-col gap-4 md:flex-row bg-gradient-to-tl overflow-auto from-login-blue via-login-dark to-portfolio-header">
             <div className="w-full md:w-1/2 h-full flex justify-center items-center">
               <LiquidGlass
                   
@@ -114,13 +111,13 @@ export default function Page() {
                   }}
               >
                 <div className="flex flex-col justify-center">
-                  <div className="border-2 border-white">
-                    <img src="../img/NeuesProjekt.png" className="w-28 h-28 md:h-56 md:w-56 mt-6 rounded-full"/>
+                  <div>
+                    <img src="../img/NeuesProjekt.png" className="w-28 h-28 md:h-56 md:w-56 mt-6 rounded-full shadow-md shadow-[#4562E6]"/>
                   </div>
                   
-                  <div className="flex-col border-2 border-white">
+                  <div className="flex-col">
                     <div className="w-full h-1/5">
-                      <p className="text-white text-xl md:text-4xl font-inter font-normal">Flondrit Fazlijevic</p>
+                      <p className="text-xl text-[#4562E6] md:text-4xl font-inter font-normal">Flondrit Fazlijevic</p>
                     </div>
                     
                     <div className="w-full h-full flex">
@@ -140,7 +137,7 @@ export default function Page() {
   
                     </div>
                   </div>
-                  <div className="w-full h-full border-white border-2">
+                  <div className="w-full h-full">
                     <p className="text-white text-base md:text-lg font-inter font-extralight">
                       Ich bin Flondrit Fazlijevic, 15 Jahre alt und komme aus dem Kosovo. 
                       Ich bin in der Schweiz geboren, aber meine Eltern kommen aus dem Kosovo.  
