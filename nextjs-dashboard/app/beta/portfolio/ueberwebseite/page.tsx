@@ -128,7 +128,7 @@ export default function Page() {
                   Über Diese Webseite
                 </p>
               </div>
-              <div className="w-full h-[60%] md:h-[45%] overflow-auto">
+              <div className="w-full min-h-[60%] md:h-[45%] overflow-auto">
                 <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
                   Diese Webseite habe ich innerhalb von einem Monat
                   programmiert. Ich musste mir zuerst die Grundlagen von Next.js

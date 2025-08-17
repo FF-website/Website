@@ -122,8 +122,8 @@ export default function Page() {
             customSize={true}
             style={{}}
           >
-            <div className="flex flex-col justify-center">
-              <div>
+            <div className="flex flex-col w-full min-h-full  justify-center">
+              <div> 
                 <img
                   src="../img/NeuesProjekt.png"
                   className="select-none w-28 h-28 md:h-56 md:w-56 mt-6 rounded-full shadow-md shadow-[#4562E6]"
@@ -171,7 +171,7 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-              <div className="w-full h-full">
+              <div className="w-full min-h-full">
                 <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
                   Ich bin Flondrit Fazlijevic, 15 Jahre alt und komme aus dem
                   Kosovo. Ich bin in der Schweiz geboren, aber meine Eltern
@@ -232,41 +232,48 @@ export default function Page() {
             width={0.9}
             customSize={true}
           >
-            <p className="md:text-4xl text-2xl mt-2 text-center font-inter font-normal text-white underline select-none">
-              Erfahrungen
-            </p>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <IoLogoJavascript className="mt-6" size={80} color="#fcba03" />
-                <span className="mt-6 ml-6 text-2xl font-inter font-extralight select-none">
-                  Javascript(Gute Kenntnisse)
-                </span>
-              </li>
-              <li className="flex items-center">
-                <SiLua className="mt-6" size={80} color="#0055ff" />
-                <span className="mt-6 ml-6 text-2xl font-inter font-extralight select-none">
-                  Lua(Gute Kenntnisse)
-                </span>
-              </li>
-              <li className="flex items-center">
-                <FaPython className="mt-6" size={80} color="#0263a8" />
-                <span className="mt-6 ml-6 text-2xl font-inter font-extralight select-none">
-                  Python(Grundkenntnisse)
-                </span>
-              </li>
-              <li className="flex items-center">
-                <FaHtml5 className="mt-6" size={80} color="#ff6f00" />
-                <span className="mt-6 ml-6 text-2xl font-inter font-extralight select-none">
-                  HTML(Grundkenntnisse)
-                </span>
-              </li>
-              <li className="flex items-center">
-                <FaCss3Alt className="mt-6" size={80} color="#0384fc" />
-                <span className="mt-6 ml-6 text-2xl font-inter font-extralight select-none">
-                  CSS(Grundkenntnisse)
-                </span>
-              </li>
-            </ul>
+            
+              <div className="w-full h-full flex flex-col">
+                <div className="w-full h-1/5 flex justify-center items-center ">
+                  <p className="md:text-4xl text-2xl text-center font-inter font-normal text-white underline select-none">
+                    Erfahrungen
+                  </p>
+                </div>
+                <div className="w-full h-full flex flex-col items-center ">
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <IoLogoJavascript className="mt-6" size={40} color="#fcba03" />
+                    <span className="mt-6 ml-6 text-xl md:text-2xl font-inter font-extralight select-none">
+                      Javascript(Gute Kenntnisse)
+                    </span>
+                  </li>
+                  <li className="flex items-center">
+                    <SiLua className="mt-6" size={40} color="#0055ff" />
+                    <span className="mt-6 ml-6 text-xl md:text-2xl font-inter font-extralight select-none">
+                      Lua(Gute Kenntnisse)
+                    </span>
+                  </li>
+                  <li className="flex items-center">
+                    <FaPython className="mt-6" size={40} color="#0263a8" />
+                    <span className="mt-6 ml-6 text-xl md:text-2xl font-inter font-extralight select-none">
+                      Python(Grundkenntnisse)
+                    </span>
+                  </li>
+                  <li className="flex items-center">
+                    <FaHtml5 className="mt-6" size={40} color="#ff6f00" />
+                    <span className="mt-6 ml-6 text-xl md:text-2xl font-inter font-extralight select-none">
+                      HTML(Grundkenntnisse)
+                    </span>
+                  </li>
+                  <li className="flex items-center">
+                    <FaCss3Alt className="mt-6" size={40} color="#0384fc" />
+                    <span className="mt-6 ml-6 text-xl md:text-2xl font-inter font-extralight select-none">
+                      CSS(Grundkenntnisse)
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              </div>
           </LiquidGlass>
         </div>
       </div>
