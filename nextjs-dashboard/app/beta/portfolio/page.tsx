@@ -15,8 +15,10 @@ import { IoClose } from "react-icons/io5";
 import { FaPython } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
 import { FaHtml5 } from "react-icons/fa6";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 
-const LiquidGlass = dynamic(() => import("../../../@nkzw/liquid-glass"), {
+const LiquidGlass = dynamic(() => import("@nkzw/liquid-glass"), {
   ssr: false,
 });
 
@@ -32,8 +34,25 @@ export default function Page() {
 
   const menunav = (e: any) => {
     router.push(`portfolio/${e.target.id}`);
+  
   };
 
+  const experienceref = useRef<HTMLDivElement>(null)
+  const aboutref = useRef<HTMLDivElement>(null)
+  const scrollToExperience = () => {
+    if (experienceref.current) {
+      experienceref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToAbout = () => {
+    if (aboutref.current) {
+      aboutref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const [viewexperience, setViewExperience] = useState(false);
+  const [viewabout, setViewAbout] = useState(false);
 
 
   return (
@@ -89,8 +108,8 @@ export default function Page() {
         </ul>
       </nav>
 
-      <div className="w-full h-full flex flex-col gap-4 md:flex-row bg-gradient-to-tl overflow-auto from-login-blue via-login-dark to-portfolio-header">
-            <div className="w-full md:w-1/2 h-full flex justify-center items-center">
+      <div className="w-full h-full flex flex-col gap-4 md:flex-row bg-gradient-to-tl overflow-scroll from-login-blue via-login-dark to-portfolio-header">
+            <div className="w-full md:w-1/2 min-h-full flex flex-col justify-center items-center border-blue-500 border" ref={aboutref}>
               <LiquidGlass
                   
                   blurAmount={0.5}
@@ -152,10 +171,26 @@ export default function Page() {
                   </div>
                 </div>
               </LiquidGlass>
+              <IoIosArrowDown size={40} color="ffffff" className={clsx(
+                "mt-4 cursor-pointer transition-transform duration-300",
+                viewexperience ? "opacity-0" : "opacity-100"
+              )} onClick={() => {
+                setViewExperience(!viewexperience);
+                scrollToExperience();
+              }}/>
+              
+              
             </div>
 
           
-            <div className="w-full md:w-1/2 flex justify-center items-center h-full">
+            <div className="w-full md:w-1/2 flex flex-col justify-center items-center min-h-full" ref={experienceref}>
+            <IoIosArrowUp size={40} color="ffffff" className={clsx(
+                "cursor-pointer transition-transform duration-300",
+                viewexperience ? "opacity-100" : "opacity-0"
+              )} onClick={() => {
+                setViewExperience(!viewexperience);
+                scrollToAbout();
+              }}/>
             
               <LiquidGlass
                 blurAmount={0.5}
