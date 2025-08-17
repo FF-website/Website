@@ -1,14 +1,14 @@
 "use client";
 import { useRouter } from "next/navigation"
+import Link from "next/link";
 
 export default function Page() {
-  const router = useRouter();
-  setTimeout(() => {
-      router.push('/beta/login');
+ 
       
-  }, 5000);
 
   return (
-    <p></p>
+    <Link href="/beta/login">
+      redirect
+    </Link>
   )
 }

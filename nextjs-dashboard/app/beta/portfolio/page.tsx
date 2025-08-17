@@ -93,13 +93,13 @@ export default function Page() {
         )}
         onMouseLeave={() => setSideNavOpen(true)}
       >
-        <h1 className="text-2xl text-center font-bold">Menu</h1>
+        <h1 className="text-2xl text-center font-inter font-normal">Menu</h1>
         <ul className="space-y-4 text-center">
-          <li className="hover:bg-[#2e2e2e] p-2 mt-4 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out">
+          <li className="hover:bg-[#2e2e2e] font-inter font-extralight p-2 mt-4 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out">
             Über Mich
           </li>
           <li
-            className="hover:bg-[#2e2e2e] p-2 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out"
+            className="hover:bg-[#2e2e2e] font-inter font-extralight p-2 rounded-lg cursor-pointer transition-colors duration-150 ease-in-out"
             id="ueberwebseite"
             onClick={(e) => menunav(e)}
           >
@@ -109,7 +109,7 @@ export default function Page() {
       </nav>
 
       <div className="w-full h-full flex flex-col gap-4 md:flex-row bg-gradient-to-tl overflow-scroll from-login-blue via-login-dark to-portfolio-header">
-            <div className="w-full md:w-1/2 min-h-full flex flex-col justify-center items-center border-blue-500 border" ref={aboutref}>
+            <div className="w-full md:w-1/2 min-h-full flex flex-col justify-center items-center " ref={aboutref}>
               <LiquidGlass
                   
                   blurAmount={0.5}
@@ -173,6 +173,7 @@ export default function Page() {
               </LiquidGlass>
               <IoIosArrowDown size={40} color="ffffff" className={clsx(
                 "mt-4 cursor-pointer transition-transform duration-300",
+                "block md:hidden",
                 viewexperience ? "opacity-0" : "opacity-100"
               )} onClick={() => {
                 setViewExperience(!viewexperience);
@@ -186,6 +187,7 @@ export default function Page() {
             <div className="w-full md:w-1/2 flex flex-col justify-center items-center min-h-full" ref={experienceref}>
             <IoIosArrowUp size={40} color="ffffff" className={clsx(
                 "cursor-pointer transition-transform duration-300",
+                "block md:hidden",
                 viewexperience ? "opacity-100" : "opacity-0"
               )} onClick={() => {
                 setViewExperience(!viewexperience);
