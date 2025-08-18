@@ -7,11 +7,11 @@ import clsx from 'clsx';
 
 
 // ## Components ##
-import PopUpFunc from '../../../components/popUp';
+import PopUpFunc from '../../components/popUp';
 
 // import LiquidGlass from '@nkzw/liquid-glass';
 import dynamic from 'next/dynamic';
-import { isAuthenticated, login, logout } from '../../lib/auth';
+import { isAuthenticated, login, logout } from '../lib/auth';
 
 // ## ICONS ##
 
@@ -30,7 +30,7 @@ type PopUp = {
   type: "success" | "error" | "info"
 };
 
-const LiquidGlass = dynamic(() => import('../../../@nkzw/liquid-glass'), {
+const LiquidGlass = dynamic(() => import('../../@nkzw/liquid-glass/lib'), {
   ssr: false,
 });
 
@@ -84,7 +84,6 @@ export default function Home() {
 
 
   const [inputValue, setInputValue] = useState('')
-  const [showPopup, setShowPopup] = useState(false)
   const [Clicked, setClicked] = useState(false)
   const [PointerEntered, setPointerEntered] = useState(false)
 
@@ -108,7 +107,7 @@ const buttonClick = (Pointer: boolean, TouchStart: boolean) => {
     addPopUpMessage("Redirecting to page...", "#0c8501", "success")
 
   
-  router.push('/beta/portfolio')
+  router.push('/portfolio')
   } else {
    addPopUpMessage("Access Denied", "#e80602", "error")
   }

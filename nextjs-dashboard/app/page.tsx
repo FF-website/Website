@@ -8,7 +8,7 @@ const Page = () => {
 
   useEffect(() => {
     // Redirect immediately on page load
-    router.push('/beta/login');
+    router.push('/login');
   }, [router]);
 
   return <div>Redirecting...</div>;

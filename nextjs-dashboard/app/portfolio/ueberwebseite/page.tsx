@@ -1,11 +1,22 @@
 "use client";
-import { isAuthenticated, login, logout } from "../../../lib/auth";
+import { isAuthenticated, login, logout } from "../../lib/auth";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 import dynamic from "next/dynamic";
+
+// ## Components ##
+import PopUpFunc from '../../../components/popUp'; 
+
+type PopUp = {
+  id: number;
+  text: string;
+  color: string;
+  visible: boolean;
+  type: "success" | "error" | "info"
+};
 
 // ## ICONS ##
 import { MdOutlineMenu } from "react-icons/md";
@@ -14,17 +25,62 @@ import { FaGithub } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 
-const LiquidGlass = dynamic(() => import("../../../../@nkzw/liquid-glass"), {
+const LiquidGlass = dynamic(() => import("../../../@nkzw/liquid-glass/lib"), {
   ssr: false,
 });
 
 export default function Page() {
   const router = useRouter();
+  const [PopUps, setPopUps] = useState<PopUp[]>([]);
+    
+      const addPopUpMessage = (text: string, color: string, type: 'success' | 'error' | 'info' ) => {
+    
+      const id = Date.now()
+    
+      const newPopUp: PopUp = {
+        id: id,
+        text: text,
+        color: color,
+        visible: false,
+        type: type,
+      }
+    
+    
+      setPopUps((prevPopUp) => [...prevPopUp, newPopUp])
+      setTimeout(() => {
+          setPopUps((prev) =>
+            prev.map((popup) =>
+              popup.id === id ? { ...popup, visible: true } : popup
+            )
+          )}, 100)
+  
+    
+      setTimeout(() => {
+          setPopUps((prev) =>
+            prev.map((popup) =>
+              popup.id === id ? { ...popup, visible: false } : popup
+            )
+          );
+        
+             setTimeout(() => {
+            setPopUps((prev) =>
+              prev.filter((popup) => popup.id !== id)
+            );
+          }, 300); // match transition duration
+        }, 2500);
+    
+    }
+
+
+
+
+
   const [isSideNavClosed, setSideNavClosed] = useState(true);
 
 
   const menunav = (e: any) => {
-    router.push(`/beta/${e.target.id}`);
+    addPopUpMessage("Weiterleitung zur Seite...", "#0c8501", "success")
+    router.push(`/${e.target.id}`);
 
 
   };
@@ -221,6 +277,32 @@ export default function Page() {
           </LiquidGlass>
         </div>
       </div>
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+            {PopUps.map((popup, index) => (
+              <div
+                key={popup.id}
+                className="absolute left-1/2 transform -translate-x-1/2"
+                style={{ top: `${index * 60}px` }} // Adjust if popups are taller/shorter
+              >
+                <PopUpFunc
+                  showPopUp={popup.visible}
+                  setShowPopup={() => {
+                    setPopUps((prev) =>
+                      prev.map((p) =>
+                        p.id === popup.id ? { ...p, visible: false } : p
+                      )
+                    );
+                    setTimeout(() => {
+                      setPopUps((prev) => prev.filter((p) => p.id !== popup.id));
+                    }, 300);
+                  }}
+                  PopUpText={popup.text}
+                  PopUpColorHEX={popup.color}
+                  type={popup.type}
+                />
+              </div>
+            ))}
+          </div>
     </div>
   );
 }

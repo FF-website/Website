@@ -1,10 +1,21 @@
 "use client";
-import { isAuthenticated, login, logout } from "../../lib/auth";
+import { isAuthenticated, login, logout } from "../lib/auth";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import { useState, useEffect, useRef } from "react";
 
 import dynamic from "next/dynamic";
+
+// ## Components ##
+import PopUpFunc from '../../components/popUp'; 
+
+type PopUp = {
+  id: number;
+  text: string;
+  color: string;
+  visible: boolean;
+  type: "success" | "error" | "info"
+};
 
 // ## ICONS ##
 import { SiLua } from "react-icons/si";
@@ -23,10 +34,53 @@ const LiquidGlass = dynamic(() => import("@nkzw/liquid-glass"), {
 
 export default function Page() {
   const router = useRouter();
+  const [PopUps, setPopUps] = useState<PopUp[]>([]);
+    
+      const addPopUpMessage = (text: string, color: string, type: 'success' | 'error' | 'info' ) => {
+    
+      const id = Date.now()
+    
+      const newPopUp: PopUp = {
+        id: id,
+        text: text,
+        color: color,
+        visible: false,
+        type: type,
+      }
+    
+    
+      setPopUps((prevPopUp) => [...prevPopUp, newPopUp])
+      setTimeout(() => {
+          setPopUps((prev) =>
+            prev.map((popup) =>
+              popup.id === id ? { ...popup, visible: true } : popup
+            )
+          )}, 100)
+  
+    
+      setTimeout(() => {
+          setPopUps((prev) =>
+            prev.map((popup) =>
+              popup.id === id ? { ...popup, visible: false } : popup
+            )
+          );
+        
+             setTimeout(() => {
+            setPopUps((prev) =>
+              prev.filter((popup) => popup.id !== id)
+            );
+          }, 300); // match transition duration
+        }, 2500);
+    
+    }
+
+
   const [isSideNavClosed, setSideNavClosed] = useState(true);
 
   const menunav = (e: any) => {
+    addPopUpMessage("Weiterleitung zur Seite...", "#0c8501", "success")
     router.push(`portfolio/${e.target.id}`);
+    
   };
 
   const experienceref = useRef<HTMLDivElement>(null);
@@ -104,7 +158,7 @@ export default function Page() {
         </ul>
       </nav>
 
-      <div className="w-full min-h-full flex flex-col gap-4 md:flex-row bg-gradient-to-tl overflow-scroll from-login-blue via-login-dark to-portfolio-header">
+      <div className="w-full h-full sm:min-h-auto flex flex-col gap-4 md:flex-row bg-gradient-to-tl overflow-scroll sm:overflow-auto from-login-blue via-login-dark to-portfolio-header">
         <div
           className="w-full md:w-1/2 min-h-full flex flex-col justify-center items-center "
           ref={aboutref}
@@ -122,7 +176,7 @@ export default function Page() {
             customSize={true}
             style={{}}
           >
-            <div className="flex flex-col w-full min-h-full  justify-center">
+            <div className="flex flex-col w-full min-h-full sm:h-full">
               <div> 
                 <img
                   src="../img/NeuesProjekt.png"
@@ -132,23 +186,23 @@ export default function Page() {
 
               <div className="flex-col">
                 <div className="w-full h-1/5">
-                  <p className="text-xl text-[#4562E6] md:text-4xl font-inter font-normal select-none">
+                  <p className="text-2xl text-[#4562E6] md:text-4xl font-inter font-normal select-none">
                     Flondrit Fazlijevic
                   </p>
                 </div>
 
                 <div className="w-full h-full flex">
                   <div className="w-1/2 h-full flex flex-col gap-2">
-                    <p className="text-white text-base md:text-lg font-inter font-extralight md:font-normal select-none">
+                    <p className="text-white text-sm md:text-lg font-inter font-extralight md:font-normal select-none">
                       Alter:
                     </p>
-                    <p className="text-white text-base md:text-lg font-inter font-extralight md:font-normal select-none">
+                    <p className="text-white text-sm md:text-lg font-inter font-extralight md:font-normal select-none">
                       Geburtsdatum:
                     </p>
-                    <p className="text-white text-base md:text-lg font-inter font-extralight md:font-normal select-none">
+                    <p className="text-white text-sm md:text-lg font-inter font-extralight md:font-normal select-none">
                       Nationalitäten:
                     </p>
-                    <p className="text-white text-base md:text-lg font-inter font-extralight md:font-normal select-none">
+                    <p className="text-white text-sm md:text-lg font-inter font-extralight md:font-normal select-none">
                       Hobbies:
                     </p>
                     <p className="text-white text-lg md:text-2xl font-inter font-extralight md:font-normal underline underline-offset-4 select-none">
@@ -156,23 +210,23 @@ export default function Page() {
                     </p>
                   </div>
                   <div className="w-1/2 h-full flex flex-col gap-2">
-                    <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
+                    <p className="text-white text-sm md:text-lg font-inter font-extralight select-none">
                       15 Jahre
                     </p>
-                    <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
+                    <p className="text-white text-sm md:text-lg font-inter font-extralight select-none">
                       7. August 2010
                     </p>
-                    <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
+                    <p className="text-white text-sm md:text-lg font-inter font-extralight select-none">
                       Schweiz, Kosovo
                     </p>
-                    <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
+                    <p className="text-white text-sm md:text-lg font-inter font-extralight select-none">
                       Fussball, Basketball, Programmieren, Gamen
                     </p>
                   </div>
                 </div>
               </div>
               <div className="w-full min-h-full">
-                <p className="text-white text-base md:text-lg font-inter font-extralight select-none">
+                <p className="text-white text-15px md:text-lg font-inter font-extralight select-none">
                   Ich bin Flondrit Fazlijevic, 15 Jahre alt und komme aus dem
                   Kosovo. Ich bin in der Schweiz geboren, aber meine Eltern
                   kommen aus dem Kosovo. Meine Leidenschaft ist das
@@ -203,7 +257,7 @@ export default function Page() {
         </div>
 
         <div
-          className="w-full md:w-1/2 flex flex-col justify-center items-center min-h-full"
+          className="w-full md:w-1/2 flex flex-col justify-center items-center min-h-full sm:h-full"
           ref={experienceref}
         >
           <IoIosArrowUp
@@ -277,6 +331,32 @@ export default function Page() {
           </LiquidGlass>
         </div>
       </div>
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+      {PopUps.map((popup, index) => (
+        <div
+          key={popup.id}
+          className="absolute left-1/2 transform -translate-x-1/2"
+          style={{ top: `${index * 60}px` }} // Adjust if popups are taller/shorter
+        >
+          <PopUpFunc
+            showPopUp={popup.visible}
+            setShowPopup={() => {
+              setPopUps((prev) =>
+                prev.map((p) =>
+                  p.id === popup.id ? { ...p, visible: false } : p
+                )
+              );
+              setTimeout(() => {
+                setPopUps((prev) => prev.filter((p) => p.id !== popup.id));
+              }, 300);
+            }}
+            PopUpText={popup.text}
+            PopUpColorHEX={popup.color}
+            type={popup.type}
+          />
+        </div>
+      ))}
+    </div>
     </div>
   );
 }

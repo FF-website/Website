@@ -25,6 +25,12 @@ const config: Config = {
           600: '#2F6FEB',
         },
       },
+      minHeight: {
+        'none': '90%',
+      },
+      fontSize: {
+        '15px': ['15px', { lineHeight: '22px'}],
+      },
     },
     keyframes: {
       shimmer: {
