@@ -54,7 +54,7 @@ const PopUpFunc = ({
         </div>
 
         {/* Centered Text */}
-        <p className="text-sm font-medium text-center">{PopUpText}</p>
+        <p className="text-sm font-medium text-center select-none">{PopUpText}</p>
       </div>
     </div>
   );

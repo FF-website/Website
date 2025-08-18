@@ -77,9 +77,13 @@ export default function Page() {
 
   const [isSideNavClosed, setSideNavClosed] = useState(true);
 
+  const redirectpopup = () => {
+    addPopUpMessage("Weiterleitung zur Seite...", "#0c8501", "success")
+  }
+
 
   const menunav = (e: any) => {
-    addPopUpMessage("Weiterleitung zur Seite...", "#0c8501", "success")
+    redirectpopup();
     router.push(`/${e.target.id}`);
 
 
@@ -251,7 +255,8 @@ export default function Page() {
               </div>
               <div className="w-full h-1/5 flex justify-center items-center">
                 <Link
-                  href="/beta/login"
+                  href="/login"
+                  onClick={() => redirectpopup()}
                   className="text-white text-lg font-inter font-extralight backdrop-blur bg-opacity-30 border-2 p-3 hover:border-blue-500 transition-colors duration-150 border-white rounded-lg select-none"
                 >
                   Gehe zur Login-Seite
@@ -266,6 +271,7 @@ export default function Page() {
               </div>
               <div className="w-full h-1/5 flex justify-center items-center">
                 <Link
+                  onClick={() => redirectpopup()}
                   href="https://github.com/FF-website/Website"
                   className="text-white text-lg flex flex-colfont-inter font-extralight backdrop-blur bg-opacity-30 border-2 p-3 hover:border-blue-500 transition-colors duration-150 border-white rounded-lg select-none"
                 >
