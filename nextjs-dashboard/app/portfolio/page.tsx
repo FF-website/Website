@@ -179,7 +179,7 @@ export default function Page() {
             <div className="flex flex-col w-full min-h-full sm:h-full">
               <div> 
                 <img
-                  src="../img/NeuesProjekt.png"
+                  src="../Website/img/NeuesProjekt.png"
                   className="select-none w-28 h-28 md:h-56 md:w-56 mt-6 rounded-full shadow-md shadow-[#4562E6]"
                 />
               </div>
